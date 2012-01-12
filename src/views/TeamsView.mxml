@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:api="services.api.*"
+		xmlns:tba_api="services.tba_api.*"
+		title="Teams">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			protected function list_creationCompleteHandler(event:FlexEvent):void
+			{
+				get_teamsResult.token = tba_api.get_teams("get_teams");
+			}
+			
+			
+			protected function button_clickHandler(event:MouseEvent):void
+			{
+				get_teamsResult2.token = tba_api.get_teams("get_teams");
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:CallResponder id="get_teamsResult"/>
+		<tba_api:Tba_api id="tba_api"/>
+		<s:CallResponder id="get_teamsResult2"/>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:actionContent>
+		<s:Button id="button" label="Refresh" click="button_clickHandler(event)"/>
+	</s:actionContent>
+	<s:List id="list" left="0" right="0" top="0" bottom="0"
+			creationComplete="list_creationCompleteHandler(event)" labelField="teamnumber">
+		<s:AsyncListView list="{get_teamsResult.lastResult}"/>
+	</s:List>
+</s:View>

@@ -1,0 +1,330 @@
+
+<model xmlns="http://ns.adobe.com/Fiber/1.0">
+  <annotation name="ActionScriptGeneration">
+    <item name="FullyQualifyReferences">true</item>
+  </annotation>
+  <service name="Tba_api">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.tba_api</item>
+      <item name="rootURL"></item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">HTTPService</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="LINKED_FILE"></item>
+    </annotation>
+    <function name="get_teams" return-type="Team[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">http://thebluealliance.net/tbatv/api.php</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="completeURL">http://thebluealliance.net/tbatv/api.php?method=get_teams</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">teamnumber,name,informalname,city,state,country,rookieyear,robotname,website,tba_link</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::team</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParamNames">method</item>
+        <item name="inputParams">string</item>
+        <item name="returnType">opaque</item>
+      </annotation>
+      <parameter name="method" type="string"/>
+    </function>
+    <function name="get_events" return-type="Event[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">http://thebluealliance.net/tbatv/api.php</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="completeURL">http://thebluealliance.net/tbatv/api.php?method=get_events</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">eventid,name,year,week,location,official,tba_link</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::event</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParamNames">method</item>
+        <item name="inputParams">string</item>
+        <item name="returnType">opaque</item>
+      </annotation>
+      <parameter name="method" type="string"/>
+    </function>
+    <function name="get_matches" return-type="Match[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">http://thebluealliance.net/tbatv/api.php</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="completeURL">http://thebluealliance.net/tbatv/api.php?method=get_matches</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">matchid,eventid,matchname,complevel,matchnumber,red1,red2,red3,blue1,blue2,blue3,bluescore,redscore,tba_link,video_url</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::match</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParamNames">method,teamnumber,eventid,matchid,complevel</item>
+        <item name="inputParams">string,string,string,string,string</item>
+        <item name="returnType">opaque</item>
+      </annotation>
+      <parameter name="method" type="string"/>
+      <parameter name="teamnumber" type="string"/>
+      <parameter name="eventid" type="string"/>
+      <parameter name="matchid" type="string"/>
+      <parameter name="complevel" type="string"/>
+    </function>
+    <function name="get_attendance" return-type="Attendance[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">http://thebluealliance.net/tbatv/api.php</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="completeURL">http://thebluealliance.net/tbatv/api.php?method=get_attendance</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">attendanceid,teamnumber,eventid</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::attendance</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParamNames">method,eventid,teamnumber</item>
+        <item name="inputParams">string,string,string</item>
+        <item name="returnType">opaque</item>
+      </annotation>
+      <parameter name="method" type="string"/>
+      <parameter name="eventid" type="string"/>
+      <parameter name="teamnumber" type="string"/>
+    </function>
+    <function name="get_official_record" return-type="Record">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">http://thebluealliance.net/tbatv/api.php</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="completeURL">http://thebluealliance.net/tbatv/api.php?method=get_official_record</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">win,lose,tie,string,sum</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::record</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParamNames">method,teamnumber,eventid,year</item>
+        <item name="inputParams">string,string,string,string</item>
+        <item name="returnType">opaque</item>
+      </annotation>
+      <parameter name="method" type="string"/>
+      <parameter name="teamnumber" type="string"/>
+      <parameter name="eventid" type="string"/>
+      <parameter name="year" type="string"/>
+    </function>
+    <function name="get_elim_sets" return-type="Elimsets[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="ActionScriptGeneration">
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+        <item name="method">GET</item>
+        <item name="url">http://thebluealliance.net/tbatv/api.php</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="completeURL">http://thebluealliance.net/tbatv/api.php?method=get_elim_sets</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">red1,red2,red3,blue1,blue2,blue3,winner</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/::semifinalists_set</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParamNames">method,eventid,noun</item>
+        <item name="inputParams">string,string,string</item>
+        <item name="returnType">opaque</item>
+      </annotation>
+      <parameter name="method" type="string"/>
+      <parameter name="eventid" type="string"/>
+      <parameter name="noun" type="string"/>
+    </function>
+  </service>
+  <entity name="Elimsets">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Semifinalists_set</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Tba_api</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="get_elim_sets">
+      <item name="propertySpecifier">red1,red2,red3,blue1,blue2,blue3,winner</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="red1" type="string" required="true"/>
+    <property name="red2" type="string" required="true"/>
+    <property name="red3" type="string" required="true"/>
+    <property name="blue1" type="string" required="true"/>
+    <property name="blue2" type="string" required="true"/>
+    <property name="blue3" type="string" required="true"/>
+    <property name="winner" type="string" required="true"/>
+  </entity>
+  <entity name="Record">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Record</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Tba_api</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="get_official_record">
+      <item name="propertySpecifier">win,lose,tie,string,sum</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="win" type="string" required="true"/>
+    <property name="lose" type="string" required="true"/>
+    <property name="tie" type="string" required="true"/>
+    <property name="string" type="string" required="true"/>
+    <property name="sum" type="string" required="true"/>
+  </entity>
+  <entity name="Event">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Event</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Tba_api</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="get_events">
+      <item name="propertySpecifier">eventid,name,year,week,location,official,tba_link</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="eventid" type="string" required="true"/>
+    <property name="name" type="string" required="true"/>
+    <property name="year" type="string" required="true"/>
+    <property name="week" type="string" required="true"/>
+    <property name="location" type="string" required="true"/>
+    <property name="official" type="string" required="true"/>
+    <property name="tba_link" type="string" required="true"/>
+  </entity>
+  <entity name="Match">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Match</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Tba_api</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="get_matches">
+      <item name="propertySpecifier">matchid,eventid,matchname,complevel,matchnumber,red1,red2,red3,blue1,blue2,blue3,bluescore,redscore,tba_link,video_url</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="matchid" type="string" required="true"/>
+    <property name="eventid" type="string" required="true"/>
+    <property name="matchname" type="string" required="true"/>
+    <property name="complevel" type="string" required="true"/>
+    <property name="matchnumber" type="string" required="true"/>
+    <property name="red1" type="string" required="true"/>
+    <property name="red2" type="string" required="true"/>
+    <property name="red3" type="string" required="true"/>
+    <property name="blue1" type="string" required="true"/>
+    <property name="blue2" type="string" required="true"/>
+    <property name="blue3" type="string" required="true"/>
+    <property name="bluescore" type="string" required="true"/>
+    <property name="redscore" type="string" required="true"/>
+    <property name="tba_link" type="string" required="true"/>
+    <property name="video_url" type="string" required="true"/>
+  </entity>
+  <entity name="Team">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Team</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Tba_api</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="get_teams">
+      <item name="propertySpecifier">teamnumber,name,informalname,city,state,country,rookieyear,robotname,website,tba_link</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="teamnumber" type="string" required="true"/>
+    <property name="name" type="string" required="true"/>
+    <property name="informalname" type="string" required="true"/>
+    <property name="city" type="string" required="true"/>
+    <property name="state" type="string" required="true"/>
+    <property name="country" type="string" required="true"/>
+    <property name="rookieyear" type="string" required="true"/>
+    <property name="robotname" type="string" required="true"/>
+    <property name="website" type="string" required="true"/>
+    <property name="tba_link" type="string" required="true"/>
+  </entity>
+  <entity name="Attendance">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Attendance</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Tba_api,Tba_apiDummy</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="get_attendance">
+      <item name="propertySpecifier">attendanceid,teamnumber,eventid</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="attendanceid" type="string" required="true"/>
+    <property name="teamnumber" type="string" required="true"/>
+    <property name="eventid" type="string" required="true"/>
+  </entity>
+</model>
